@@ -19,8 +19,18 @@ namespace FizzBuzz
                 {
                     message += "Buzz";
                 }
-                
-                if (string.IsNullOrEmpty(message))
+
+                if (i % 7 == 0)
+                {
+                    message += "Bang";
+                }
+
+                if (i % 11 == 0)
+                {
+                    message = "Bong";
+                }
+
+                    if (string.IsNullOrEmpty(message))
                 {
                     message = i.ToString();
                 }
