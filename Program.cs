@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace FizzBuzz
 {
@@ -6,7 +7,7 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= 200; i++)
             {
                 string message = "";
                 
@@ -30,7 +31,21 @@ namespace FizzBuzz
                     message = "Bong";
                 }
 
-                    if (string.IsNullOrEmpty(message))
+                if (i % 13 == 0)
+                {
+                    int bindex = message.IndexOf("B");
+                    if (bindex != -1)
+                    {
+                        message = message.Insert(bindex, "Fezz");
+                    }
+                    else
+                    {
+                        message += "Fezz";
+                    }
+
+                }
+
+                if (string.IsNullOrEmpty(message))
                 {
                     message = i.ToString();
                 }
