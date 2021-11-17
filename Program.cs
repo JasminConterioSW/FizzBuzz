@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FizzBuzz
@@ -9,49 +10,75 @@ namespace FizzBuzz
         {
             for (int i = 1; i <= 200; i++)
             {
-                string message = "";
-                
+                List<string> messageComponents = new List<string>();
+
                 if (i % 3 == 0)
                 {
-                    message += "Fizz";
+                    messageComponents.Add("Fizz");
                 }
                 
                 if (i % 5 == 0)
                 {
-                    message += "Buzz";
+                    messageComponents.Add("Buzz");
                 }
 
                 if (i % 7 == 0)
                 {
-                    message += "Bang";
+                    messageComponents.Add("Bang");
                 }
 
                 if (i % 11 == 0)
                 {
-                    message = "Bong";
+                    messageComponents.Clear();
+                    messageComponents.Add("Bong");
                 }
+
+
 
                 if (i % 13 == 0)
                 {
-                    int bIndex = message.IndexOf("B");
+                    
+                    
+                    int bIndex = messageComponents.FindIndex(c => c.StartsWith("B"));
+                    
+                    
                     if (bIndex != -1)
                     {
-                        message = message.Insert(bIndex, "Fezz");
+                        messageComponents.Insert(bIndex, "Fezz");
                     }
                     else
                     {
-                        message += "Fezz";
+                        messageComponents.Add("Fezz");
                     }
-
+                    
                 }
 
-                if (string.IsNullOrEmpty(message))
+
+                if (i % 17 == 0)
                 {
-                    message = i.ToString();
+                    messageComponents.Reverse();
+                }
+    
+                if (messageComponents.Count == 0)
+                {
+                    messageComponents.Add(i.ToString());
                 }
 
-                Console.WriteLine(message);    
+ 
+                // convert MessageComponents to final message (not needed - now using built in function)
+                /*
+                string message = "";
+                foreach (string mc in messageComponents)
+                {
+                    message += mc;
+                }
+                */
+
+                string message = String.Join("", messageComponents);
                 
+                // Write message
+                Console.WriteLine(message);    
+ 
             }
         }
     }
