@@ -33,10 +33,10 @@ namespace FizzBuzz
 
                 if (i % 13 == 0)
                 {
-                    int bindex = message.IndexOf("B");
-                    if (bindex != -1)
+                    int bIndex = message.IndexOf("B");
+                    if (bIndex != -1)
                     {
-                        message = message.Insert(bindex, "Fezz");
+                        message = message.Insert(bIndex, "Fezz");
                     }
                     else
                     {
