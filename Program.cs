@@ -8,22 +8,25 @@ namespace FizzBuzz
         {
             for (int i = 1; i <= 100; i++)
             {
-                if (i % 3 == 0 && i%5 != 0)
+                string message = "";
+                
+                if (i % 3 == 0)
                 {
-                    Console.WriteLine("Fizz");
+                    message += "Fizz";
                 }
-                else if (i % 3 != 0 && i % 5 == 0)
+                
+                if (i % 5 == 0)
                 {
-                    Console.WriteLine("Buzz");
+                    message += "Buzz";
                 }
-                else if (i % 3 == 0 && i % 5 == 0)
+                
+                if (string.IsNullOrEmpty(message))
                 {
-                    Console.WriteLine("FizzBuzz");
+                    message = i.ToString();
                 }
-                else
-                {
-                    Console.WriteLine(i);
-                }
+
+                Console.WriteLine(message);    
+                
             }
         }
     }
