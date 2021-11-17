@@ -8,7 +8,12 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i <= 200; i++)
+
+            Console.WriteLine("How many numbers do you want to FizzBuzz?");
+            string iMaxString = Console.ReadLine();
+            int iMax = Int32.Parse(iMaxString);
+            
+            for (int i = 1; i <= iMax; i++)
             {
                 List<string> messageComponents = new List<string>();
 
